@@ -108,6 +108,41 @@
       margin-top: -4px;
     }
 
+    .nav-toggle {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--white);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .menu-button span,
+    .menu-button::before,
+    .menu-button::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--blue-deep);
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .menu-button {
+      flex-direction: column;
+      gap: 5px;
+    }
+
     nav {
       display: flex;
       align-items: center;
@@ -621,24 +656,82 @@
     }
 
     @media (max-width: 720px) {
+      .container {
+        width: min(100% - 24px, 1120px);
+      }
+
       .topbar .container {
-        display: block;
+        display: grid;
+        gap: 4px;
+        padding: 7px 0;
+        font-size: 12px;
       }
 
       .nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 12px 0;
-        gap: 10px;
+        position: relative;
+        min-height: 66px;
+        align-items: center;
+        flex-direction: row;
+        padding: 8px 0;
+        gap: 12px;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .brand img {
+        width: 46px;
+        height: 46px;
+      }
+
+      .brand strong {
+        overflow-wrap: anywhere;
+      }
+
+      .menu-button {
+        display: inline-flex;
+        flex: 0 0 auto;
       }
 
       nav {
-        justify-content: flex-start;
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        display: none;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 12px;
+        background: rgba(255, 255, 255, .98);
+        border: 1px solid var(--line);
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 18px 38px rgba(11, 35, 55, .14);
       }
 
       nav a {
-        padding: 8px 8px;
+        display: flex;
+        align-items: center;
+        min-height: 42px;
+        padding: 9px 10px;
         font-size: 13px;
+        background: #f4f7f9;
+      }
+
+      .nav-toggle:checked ~ nav {
+        display: grid;
+      }
+
+      .nav-toggle:checked + .menu-button span {
+        opacity: 0;
+      }
+
+      .nav-toggle:checked + .menu-button::before {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .nav-toggle:checked + .menu-button::after {
+        transform: translateY(-7px) rotate(-45deg);
       }
 
       .hero {
@@ -648,8 +741,27 @@
           url("img/logo AP.png") center bottom 10px / 420px no-repeat;
       }
 
+      h1 {
+        font-size: clamp(36px, 12vw, 48px);
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
       .hero-grid {
         gap: 30px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .btn {
+        width: 100%;
       }
 
       .hero-facts,
@@ -674,8 +786,34 @@
         padding: 24px;
       }
 
+      .card,
+      .step,
+      .why-item,
+      .fact {
+        min-height: auto;
+      }
+
       footer .container {
         display: block;
+      }
+    }
+
+    @media (max-width: 420px) {
+      nav {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .section-head h2,
+      .contact-band h2 {
+        font-size: 28px;
       }
     }
   </style>
@@ -694,6 +832,10 @@
         <img src="img/logo AP.png" alt="Logo Azam Project">
         <strong>Azam Project <span>Kediri</span></strong>
       </a>
+      <input class="nav-toggle" type="checkbox" id="menu-toggle" aria-label="Buka menu">
+      <label class="menu-button" for="menu-toggle" aria-label="Buka menu">
+        <span></span>
+      </label>
       <nav aria-label="Menu utama">
         <a href="#produk">Produk</a>
         <a href="#layanan">Layanan</a>
