@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produk Panel | Azam Project Kediri</title>
+  <meta name="description" content="Katalog produk panel Azam Project Kediri: panel genset, panel 1 phase, 3 phase, selector, semi digital, ATS, AMF, dan panel custom.">
+  <link rel="icon" type="image/png" sizes="64x64" href="img/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <style>
+    :root {
+      --ink: #152331;
+      --muted: #657283;
+      --line: #d9e1ea;
+      --paper: #f7f9fb;
+      --white: #ffffff;
+      --blue: #064a72;
+      --blue-deep: #073047;
+      --gold: #f3a51b;
+      --green: #168064;
+      --shadow: 0 18px 45px rgba(11, 35, 55, .12);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--blue-deep);
+      white-space: nowrap;
+    }
+
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+    }
+
+    .brand span {
+      display: block;
+      margin-top: -4px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      gap: 2px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      padding: 10px 11px;
+      border-radius: 6px;
+      color: #25384a;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      background: #eef4f8;
+      color: var(--blue);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 18px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      color: var(--white);
+      background: var(--green);
+    }
+
+    .btn-secondary {
+      color: var(--blue-deep);
+      background: var(--white);
+      border-color: #bed0dc;
+    }
+
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .quick-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .18);
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    .quick-link .mark {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: var(--white);
+      color: var(--blue-deep);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .quick-link .shopee {
+      color: #ee4d2d;
+    }
+
+    .quick-link .tokopedia {
+      color: #03ac0e;
+    }
+
+    .quick-link .instagram {
+      color: #c13584;
+    }
+
+    .hero {
+      background:
+        linear-gradient(115deg, rgba(7, 48, 71, .96), rgba(6, 74, 114, .9)),
+        url("img/IMG-20261007-WA0019.jpg") center / cover;
+      color: var(--white);
+      padding: 96px 0 70px;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      color: #ffcc68;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: .8px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 99px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 68px);
+    }
+
+    .hero p {
+      max-width: 660px;
+      margin: 20px 0 0;
+      color: rgba(255, 255, 255, .9);
+      font-size: clamp(17px, 2vw, 21px);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      max-width: 620px;
+      color: var(--blue-deep);
+      font-size: clamp(30px, 4vw, 44px);
+    }
+
+    .section-head p {
+      max-width: 460px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .feature-card,
+    .product-card,
+    .spec-card {
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 28px rgba(19, 42, 62, .06);
+    }
+
+    .feature-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 430px;
+    }
+
+    .feature-card img,
+    .product-card img,
+    .gallery a img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .feature-card img {
+      min-height: 430px;
+    }
+
+    .feature-copy {
+      display: grid;
+      align-content: center;
+      padding: 34px;
+    }
+
+    .feature-copy .eyebrow {
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .feature-copy h2 {
+      color: var(--blue-deep);
+      font-size: clamp(28px, 4vw, 42px);
+    }
+
+    .feature-copy p,
+    .product-card p,
+    .spec-card p {
+      color: var(--muted);
+      margin: 12px 0 0;
+    }
+
+    .side-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      min-height: 205px;
+    }
+
+    .product-copy,
+    .spec-card {
+      padding: 20px;
+    }
+
+    .product-copy h3,
+    .spec-card h3 {
+      color: var(--blue-deep);
+      font-size: 18px;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .gallery a {
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 8px 20px rgba(19, 42, 62, .05);
+    }
+
+    .cta {
+      padding: 0 0 70px;
+    }
+
+    .cta-band {
+      display: grid;
+      grid-template-columns: 1fr minmax(280px, 420px);
+      gap: 24px;
+      align-items: center;
+      padding: 32px;
+      border-radius: var(--radius);
+      background: var(--blue-deep);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-band p {
+      color: rgba(255, 255, 255, .86);
+      margin: 10px 0 0;
+    }
+
+    footer {
+      padding: 28px 0;
+      background: #111c26;
+      color: rgba(255, 255, 255, .72);
+      font-size: 14px;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .featured-grid,
+      .feature-card,
+      .cta-band {
+        grid-template-columns: 1fr;
+      }
+
+      .spec-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 12px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 10px 0 12px;
+        gap: 10px;
+      }
+
+      nav {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      nav a {
+        background: #f4f7f9;
+      }
+
+      .hero {
+        padding: 58px 0 52px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .quick-links {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .product-card,
+      .spec-grid,
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .product-card {
+        grid-template-rows: 210px auto;
+      }
+
+      .product-card img {
+        grid-column: 1 / -1;
+      }
+
+      .product-copy {
+        grid-column: 1 / -1;
+      }
+
+      .feature-copy,
+      .cta-band {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      nav,
+      .spec-grid,
+      .gallery,
+      .quick-links {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Azam Project">
+        <img src="img/logo AP.png" alt="Logo Azam Project">
+        <strong>Azam Project <span>Kediri</span></strong>
+      </a>
+      <nav aria-label="Menu utama">
+        <a href="index.html">Beranda</a>
+        <a href="produk.html" aria-current="page">Produk</a>
+        <a href="index.html#layanan">Layanan</a>
+        <a href="index.html#tentang">Tentang</a>
+        <a href="index.html#kontak">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-copy">
+        <p class="eyebrow">Katalog Produk</p>
+        <h1>Produk panel Azam Project</h1>
+        <p>Pilihan panel genset, 1 phase, 3 phase, selector, semi digital, dan panel custom dengan konfigurasi yang dapat disesuaikan kebutuhan lapangan.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/6281252595388" target="_blank" rel="noopener noreferrer">Pesan via WhatsApp</a>
+          <a class="btn btn-secondary" href="index.html#kontak">Konsultasi Dulu</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Produk unggulan</h2>
+          <p>Beberapa model yang sering dipesan. Detail komponen, kapasitas, warna, dan terminal dapat dibahas sebelum produksi.</p>
+        </div>
+        <div class="featured-grid">
+          <article class="feature-card">
+            <img src="img/IMG-20261007-WA0024.jpg" alt="Panel 3 phase digital premium Azam Project">
+            <div class="feature-copy">
+              <p class="eyebrow">3 Phase Digital</p>
+              <h2>Panel premium untuk kebutuhan 10 sampai 40 kVA.</h2>
+              <p>Tampilan digital, susunan panel rapi, dan desain yang siap disesuaikan untuk kebutuhan genset maupun distribusi listrik.</p>
+            </div>
+          </article>
+          <div class="side-grid">
+            <article class="product-card">
+              <img src="img/IMG-20261007-WA0038.jpg" alt="Panel 3 phase premium kapasitas besar">
+              <div class="product-copy">
+                <h3>3 Phase Premium</h3>
+                <p>Panel merah kapasitas tinggi dengan meter lengkap untuk kebutuhan beban besar.</p>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="img/IMG-20261007-WA0046.jpg" alt="Panel 1 phase digital minimalis">
+              <div class="product-copy">
+                <h3>1 Phase Digital Minimalis</h3>
+                <p>Model ringkas dengan stopkontak dan konfigurasi komponen sesuai kebutuhan pelanggan.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="spec-grid">
+          <article class="spec-card">
+            <h3>Panel Genset</h3>
+            <p>Untuk pengoperasian dan pengaturan genset sesuai kapasitas sistem.</p>
+          </article>
+          <article class="spec-card">
+            <h3>ATS dan AMF</h3>
+            <p>Perpindahan serta kontrol sumber listrik PLN dan genset.</p>
+          </article>
+          <article class="spec-card">
+            <h3>Panel Distribusi</h3>
+            <p>Pembagian daya listrik untuk rumah, toko, bangunan, dan usaha.</p>
+          </article>
+          <article class="spec-card">
+            <h3>Panel Custom</h3>
+            <p>Ukuran, warna, komponen, dan wiring dapat disesuaikan kebutuhan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Galeri produk terbaru</h2>
+          <p>Klik foto untuk melihat gambar lebih besar.</p>
+        </div>
+        <div class="gallery" aria-label="Galeri produk Azam Project">
+          <a href="img/IMG-20261007-WA0018.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0018.jpg" alt="Galeri produk Azam Project 1"></a>
+          <a href="img/IMG-20261007-WA0019.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0019.jpg" alt="Galeri produk Azam Project 2"></a>
+          <a href="img/IMG-20261007-WA0020.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0020.jpg" alt="Galeri produk Azam Project 3"></a>
+          <a href="img/IMG-20261007-WA0021.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0021.jpg" alt="Galeri produk Azam Project 4"></a>
+          <a href="img/IMG-20261007-WA0022.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0022.jpg" alt="Galeri produk Azam Project 5"></a>
+          <a href="img/IMG-20261007-WA0023.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0023.jpg" alt="Galeri produk Azam Project 6"></a>
+          <a href="img/IMG-20261007-WA0024.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0024.jpg" alt="Galeri produk Azam Project 7"></a>
+          <a href="img/IMG-20261007-WA0025.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0025.jpg" alt="Galeri produk Azam Project 8"></a>
+          <a href="img/IMG-20261007-WA0026.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0026.jpg" alt="Galeri produk Azam Project 9"></a>
+          <a href="img/IMG-20261007-WA0027.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0027.jpg" alt="Galeri produk Azam Project 10"></a>
+          <a href="img/IMG-20261007-WA0028.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0028.jpg" alt="Galeri produk Azam Project 11"></a>
+          <a href="img/IMG-20261007-WA0029.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0029.jpg" alt="Galeri produk Azam Project 12"></a>
+          <a href="img/IMG-20261007-WA0030.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0030.jpg" alt="Galeri produk Azam Project 13"></a>
+          <a href="img/IMG-20261007-WA0031.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0031.jpg" alt="Galeri produk Azam Project 14"></a>
+          <a href="img/IMG-20261007-WA0032.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0032.jpg" alt="Galeri produk Azam Project 15"></a>
+          <a href="img/IMG-20261007-WA0033.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0033.jpg" alt="Galeri produk Azam Project 16"></a>
+          <a href="img/IMG-20261007-WA0034.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0034.jpg" alt="Galeri produk Azam Project 17"></a>
+          <a href="img/IMG-20261007-WA0035.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0035.jpg" alt="Galeri produk Azam Project 18"></a>
+          <a href="img/IMG-20261007-WA0036.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0036.jpg" alt="Galeri produk Azam Project 19"></a>
+          <a href="img/IMG-20261007-WA0037.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0037.jpg" alt="Galeri produk Azam Project 20"></a>
+          <a href="img/IMG-20261007-WA0038.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0038.jpg" alt="Galeri produk Azam Project 21"></a>
+          <a href="img/IMG-20261007-WA0039.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0039.jpg" alt="Galeri produk Azam Project 22"></a>
+          <a href="img/IMG-20261007-WA0040.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0040.jpg" alt="Galeri produk Azam Project 23"></a>
+          <a href="img/IMG-20261007-WA0041.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0041.jpg" alt="Galeri produk Azam Project 24"></a>
+          <a href="img/IMG-20261007-WA0042.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0042.jpg" alt="Galeri produk Azam Project 25"></a>
+          <a href="img/IMG-20261007-WA0043.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0043.jpg" alt="Galeri produk Azam Project 26"></a>
+          <a href="img/IMG-20261007-WA0044.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0044.jpg" alt="Galeri produk Azam Project 27"></a>
+          <a href="img/IMG-20261007-WA0045.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0045.jpg" alt="Galeri produk Azam Project 28"></a>
+          <a href="img/IMG-20261007-WA0046.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0046.jpg" alt="Galeri produk Azam Project 29"></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2>Butuh model panel tertentu?</h2>
+            <p>Kirim kebutuhan kapasitas, foto lokasi, atau contoh panel. Azam Project akan bantu arahkan spesifikasi yang sesuai.</p>
+          </div>
+          <div>
+            <a class="btn btn-primary" href="https://wa.me/6281252595388" target="_blank" rel="noopener noreferrer">Hubungi Azam Project</a>
+            <div class="quick-links" aria-label="Marketplace dan sosial media Azam Project">
+              <a class="quick-link" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><span class="mark shopee">SP</span> Shopee 1</a>
+              <a class="quick-link" href="https://id.shp.ee/hZhoMYgM" target="_blank" rel="noopener noreferrer"><span class="mark shopee">SP</span> Shopee 2</a>
+              <a class="quick-link" href="https://vt.tokopedia.com/t/ZS9DX1mMFE1tr-acawk/" target="_blank" rel="noopener noreferrer"><span class="mark tokopedia">TP</span> Tokopedia</a>
+              <a class="quick-link" href="https://www.instagram.com/reel/DeLMxanv90l/?utm_source=ig_web_button_share_sheet&amp;stkn=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer"><span class="mark instagram">IG</span> Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>Copyright 2026 Azam Project Kediri. Semua hak dilindungi.</span>
+      <span>Panel genset | Panel listrik | AMF | ATS | Instalasi</span>
+    </div>
+  </footer>
+</body>
+</html>

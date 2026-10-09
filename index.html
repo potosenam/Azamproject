@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AP Kediri | Panel Genset dan Panel Listrik</title>
+  <meta name="description" content="AP  Project Kediri melayani konsultasi, pembuatan, perakitan, instalasi, dan perawatan panel genset serta panel listrik.">
+  <link rel="icon" type="image/png" sizes="64x64" href="img/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <style>
+    :root {
+      --ink: #152331;
+      --muted: #657283;
+      --line: #d9e1ea;
+      --paper: #f7f9fb;
+      --white: #ffffff;
+      --blue: #064a72;
+      --blue-deep: #073047;
+      --gold: #f3a51b;
+      --green: #168064;
+      --shadow: 0 18px 45px rgba(11, 35, 55, .12);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--blue-deep);
+      color: rgba(255, 255, 255, .9);
+      font-size: 14px;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 8px 0;
+      flex-wrap: wrap;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      color: var(--blue-deep);
+      white-space: nowrap;
+    }
+
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: -4px;
+    }
+
+    .nav-toggle {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--white);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .menu-button span,
+    .menu-button::before,
+    .menu-button::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--blue-deep);
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .menu-button {
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      padding: 10px 11px;
+      border-radius: 6px;
+      color: #25384a;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      background: #eef4f8;
+      color: var(--blue);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 11px 18px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(7, 48, 71, .16);
+    }
+
+    .btn-primary {
+      color: var(--white);
+      background: var(--green);
+    }
+
+    .btn-secondary {
+      color: var(--blue-deep);
+      background: var(--white);
+      border-color: #bed0dc;
+    }
+
+    .btn-gold {
+      color: #241a05;
+      background: var(--gold);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(115deg, rgba(7, 48, 71, .96), rgba(6, 74, 114, .88)),
+        url("img/logo AP.png") center right 10% / min(62vw, 680px) no-repeat;
+      color: var(--white);
+      min-height: calc(100vh - 118px);
+      display: flex;
+      align-items: center;
+      padding: 72px 0 58px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 11px;
+      background: linear-gradient(90deg, var(--gold), #ffffff, var(--blue));
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      color: #ffcc68;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: .8px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 99px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(40px, 7vw, 76px);
+    }
+
+    .hero p {
+      max-width: 660px;
+      margin: 22px 0 0;
+      font-size: clamp(17px, 2vw, 21px);
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .hero-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 38px;
+      max-width: 760px;
+    }
+
+    .fact {
+      border: 1px solid rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      padding: 16px;
+      min-height: 104px;
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 24px;
+      color: #ffcc68;
+    }
+
+    .fact span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, .85);
+      font-size: 14px;
+    }
+
+    .logo-panel {
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid rgba(255, 255, 255, .36);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .logo-panel img,
+    .logo-panel iframe {
+      width: 100%;
+      border: 0;
+      display: block;
+      border-radius: 6px;
+    }
+
+    .logo-panel img {
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    .logo-panel iframe {
+      aspect-ratio: 9 / 16;
+      min-height: 540px;
+    }
+
+    section {
+      padding: 76px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      color: var(--blue-deep);
+      max-width: 620px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 460px;
+    }
+
+    .intro {
+      background: var(--white);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .intro-copy {
+      padding: 34px;
+      background: #eef4f8;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+    }
+
+    .intro-copy p {
+      margin: 0 0 16px;
+    }
+
+    .intro-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      position: relative;
+      padding: 18px 18px 18px 48px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      font-weight: 700;
+    }
+
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 22px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: inset 0 0 0 4px #fff7df;
+    }
+
+    .products {
+      background: var(--paper);
+    }
+
+    .product-type-grid,
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .product-showcase {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .featured-product,
+    .product-photo-card {
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 28px rgba(19, 42, 62, .06);
+    }
+
+    .featured-product {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      min-height: 420px;
+    }
+
+    .featured-product img,
+    .product-photo-card img,
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .featured-product img {
+      min-height: 420px;
+    }
+
+    .featured-copy {
+      display: grid;
+      align-content: center;
+      padding: 34px;
+    }
+
+    .featured-copy .eyebrow {
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .featured-copy h3 {
+      color: var(--blue-deep);
+      font-size: clamp(28px, 4vw, 42px);
+    }
+
+    .featured-copy p {
+      color: var(--muted);
+      margin: 16px 0 0;
+    }
+
+    .product-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .product-photo-card {
+      display: grid;
+      grid-template-rows: 260px auto;
+    }
+
+    .product-photo-card .copy {
+      padding: 20px;
+    }
+
+    .product-photo-card h3 {
+      color: var(--blue-deep);
+      font-size: 18px;
+    }
+
+    .product-photo-card p {
+      color: var(--muted);
+      margin: 8px 0 0;
+      font-size: 15px;
+    }
+
+    .product-gallery {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 8px 20px rgba(19, 42, 62, .05);
+    }
+
+    .card {
+      min-height: 176px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 10px 28px rgba(19, 42, 62, .06);
+    }
+
+    .card .icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: #e7f2f4;
+      color: var(--blue);
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      color: var(--blue-deep);
+    }
+
+    .card p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .services {
+      background: var(--white);
+    }
+
+    .service-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .why {
+      background: linear-gradient(180deg, #073047, #0b4765);
+      color: var(--white);
+    }
+
+    .why .section-head h2,
+    .why .section-head p {
+      color: var(--white);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .why-item {
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .18);
+      padding: 20px;
+      min-height: 178px;
+    }
+
+    .why-item strong {
+      display: block;
+      color: #ffcc68;
+      font-size: 16px;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .why-item span {
+      color: rgba(255, 255, 255, .82);
+      font-size: 14px;
+    }
+
+    .process {
+      background: var(--white);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      counter-reset: step;
+    }
+
+    .step {
+      counter-increment: step;
+      position: relative;
+      padding: 22px;
+      background: #f3f7fa;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      min-height: 192px;
+    }
+
+    .step::before {
+      content: counter(step, decimal-leading-zero);
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 6px;
+      margin-bottom: 18px;
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      font-size: 17px;
+      color: var(--blue-deep);
+    }
+
+    .step p {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .faq {
+      background: var(--paper);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    details {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--blue-deep);
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .contact {
+      padding-bottom: 0;
+      background: var(--white);
+    }
+
+    .contact-band {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+      padding: 36px;
+      background: var(--blue-deep);
+      color: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-band h2 {
+      font-size: clamp(30px, 4vw, 48px);
+    }
+
+    .contact-band p {
+      color: rgba(255, 255, 255, .86);
+      margin: 16px 0 0;
+      max-width: 520px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      align-content: center;
+    }
+
+    .contact-item {
+      padding: 16px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, .09);
+      border: 1px solid rgba(255, 255, 255, .16);
+    }
+
+    .contact-item strong {
+      display: block;
+      color: #ffcc68;
+      margin-bottom: 4px;
+    }
+
+    .contact-item a {
+      color: var(--white);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, .09);
+      border: 1px solid rgba(255, 255, 255, .16);
+      font-weight: 800;
+    }
+
+    .social-icon {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 6px;
+      background: var(--gold);
+      color: #1c1607;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .map-panel {
+      margin-top: 22px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .map-panel iframe {
+      width: 100%;
+      height: 420px;
+      display: block;
+      border: 0;
+    }
+
+    footer {
+      margin-top: 76px;
+      padding: 28px 0;
+      background: #111c26;
+      color: rgba(255, 255, 255, .72);
+      font-size: 14px;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid,
+      .intro-grid,
+      .contact-band {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-panel {
+        max-width: 360px;
+      }
+
+      .product-type-grid,
+      .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .product-showcase,
+      .featured-product {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-product img {
+        min-height: 320px;
+      }
+
+      .product-gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .why-grid,
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 12px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .topbar .container {
+        display: grid;
+        gap: 4px;
+        padding: 7px 0;
+        font-size: 12px;
+      }
+
+      .nav {
+        position: relative;
+        min-height: 66px;
+        align-items: center;
+        flex-direction: row;
+        padding: 8px 0;
+        gap: 12px;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .brand img {
+        width: 46px;
+        height: 46px;
+      }
+
+      .brand strong {
+        overflow-wrap: anywhere;
+      }
+
+      .menu-button {
+        display: inline-flex;
+        flex: 0 0 auto;
+      }
+
+      nav {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        display: none;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 12px;
+        background: rgba(255, 255, 255, .98);
+        border: 1px solid var(--line);
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 18px 38px rgba(11, 35, 55, .14);
+      }
+
+      nav a {
+        display: flex;
+        align-items: center;
+        min-height: 42px;
+        padding: 9px 10px;
+        font-size: 13px;
+        background: #f4f7f9;
+      }
+
+      .nav-toggle:checked ~ nav {
+        display: grid;
+      }
+
+      .nav-toggle:checked + .menu-button span {
+        opacity: 0;
+      }
+
+      .nav-toggle:checked + .menu-button::before {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .nav-toggle:checked + .menu-button::after {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      .hero {
+        padding: 50px 0 44px;
+        background:
+          linear-gradient(115deg, rgba(7, 48, 71, .96), rgba(6, 74, 114, .9)),
+          url("img/logo AP.png") center bottom 10px / 420px no-repeat;
+      }
+
+      h1 {
+        font-size: clamp(36px, 12vw, 48px);
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .hero-grid {
+        gap: 30px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-facts,
+      .product-type-grid,
+      .service-grid,
+      .why-grid,
+      .steps,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-panel {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .intro-copy,
+      .contact-band {
+        padding: 24px;
+      }
+
+      .card,
+      .step,
+      .why-item,
+      .fact {
+        min-height: auto;
+      }
+
+      .product-photo-grid,
+      .product-gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .featured-copy {
+        padding: 24px;
+      }
+
+      .product-photo-card {
+        grid-template-rows: 210px auto;
+      }
+
+      footer .container {
+        display: block;
+      }
+    }
+
+    @media (max-width: 420px) {
+      nav {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .section-head h2,
+      .contact-band h2 {
+        font-size: 28px;
+      }
+
+      .social-links {
+        grid-template-columns: 1fr;
+      }
+
+      .map-panel iframe {
+        height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>Desa Tambakrejo, Kecamatan Gurah, Kabupaten Kediri</span>
+      <span>Konsultasi | Pembuatan Panel | Instalasi | Perawatan</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#beranda" aria-label="AP Project">
+        <img src="img/logo AP.png" alt="Logo AP Project">
+        <strong>AP Project <span>Kediri</span></strong>
+      </a>
+      <input class="nav-toggle" type="checkbox" id="menu-toggle" aria-label="Buka menu">
+      <label class="menu-button" for="menu-toggle" aria-label="Buka menu">
+        <span></span>
+      </label>
+      <nav aria-label="Menu utama">
+        <a href="produk.html">Produk</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#alur">Alur</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Panel Genset dan Panel Listrik</p>
+          <h1>AP  Project Kediri</h1>
+          <p>Penyedia solusi panel genset, panel listrik, AMF, ATS, perakitan, instalasi, serta perawatan untuk rumah, usaha, gedung, fasilitas umum, dan kebutuhan industri.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="https://wa.me/6281252595388" target="_blank" rel="noopener">Konsultasi Sekarang</a>
+            <a class="btn btn-secondary" href="produk.html">Lihat Produk</a>
+          </div>
+          <div class="hero-facts" aria-label="Ringkasan layanan">
+            <div class="fact">
+              <strong>Kediri</strong>
+              <span>Berlokasi di Tambakrejo, Gurah</span>
+            </div>
+            <div class="fact">
+              <strong>Custom</strong>
+              <span>Panel dibuat sesuai kebutuhan sistem</span>
+            </div>
+            <div class="fact">
+              <strong>Rapi</strong>
+              <span>Perakitan memperhatikan fungsi dan pemeriksaan</span>
+            </div>
+          </div>
+        </div>
+        <div class="logo-panel">
+          <iframe
+            src="https://www.youtube.com/embed/yZ4XfdXTKqg"
+            title="Video AP Project Kediri"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro" id="tentang">
+      <div class="container intro-grid">
+        <div class="intro-copy">
+          <div class="section-head">
+            <h2>Solusi panel listrik yang disesuaikan dengan kebutuhan pelanggan.</h2>
+          </div>
+          <p>AP  Project adalah penyedia panel genset dan kebutuhan panel listrik yang berlokasi di Desa Tambakrejo, Kecamatan Gurah, Kabupaten Kediri, Jawa Timur.</p>
+          <p>Kami membantu masyarakat, pelaku usaha, dan perusahaan mendapatkan panel yang sesuai fungsi, kapasitas, serta konfigurasi sistem kelistrikan.</p>
+          <p>Setiap pengerjaan memperhatikan pemilihan komponen, kerapian susunan panel, dan kemudahan pemeriksaan agar panel lebih mudah digunakan dan dirawat.</p>
+        </div>
+        <ul class="check-list">
+          <li>Bisa konsultasi terlebih dahulu sebelum menentukan jenis panel.</li>
+          <li>Pengerjaan menyesuaikan kebutuhan dan spesifikasi sistem.</li>
+          <li>Melayani panel genset, panel listrik usaha, bangunan, dan industri.</li>
+          <li>Lokasi mudah dijangkau untuk pelanggan Kediri dan sekitarnya.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="products" id="produk">
+      <div class="container">
+        <div class="section-head">
+          <h2>Katalog produk panel</h2>
+          <p>Foto produk terbaru dari AP  Project. Spesifikasi, komponen, dan konfigurasi panel dapat dibahas sesuai kebutuhan pelanggan.</p>
+        </div>
+        <div class="product-showcase">
+          <article class="featured-product">
+            <img src="img/IMG-20261007-WA0024.jpg" alt="Panel 3 phase digital premium AP  Project">
+            <div class="featured-copy">
+              <p class="eyebrow">Produk Unggulan</p>
+              <h3>Panel digital premium untuk kebutuhan genset dan distribusi listrik.</h3>
+              <p>Tersedia pilihan panel 1 phase, 3 phase, selector, semi digital, hingga custom berdasarkan kapasitas dan kebutuhan instalasi.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="https://wa.me/6281252595388" target="_blank" rel="noopener">Pesan Produk</a>
+                <a class="btn btn-secondary" href="#kontak">Konsultasi Detail</a>
+              </div>
+            </div>
+          </article>
+          <div class="product-photo-grid">
+            <article class="product-photo-card">
+              <img src="img/IMG-20261007-WA0038.jpg" alt="Panel 3 phase premium merah AP  Project">
+              <div class="copy">
+                <h3>3 Phase Premium</h3>
+                <p>Panel kapasitas besar dengan tampilan meter lengkap untuk kebutuhan beban tinggi.</p>
+              </div>
+            </article>
+            <article class="product-photo-card">
+              <img src="img/IMG-20261007-WA0045.jpg" alt="Panel 3 phase selector premium AP  Project">
+              <div class="copy">
+                <h3>3 Phase Selector</h3>
+                <p>Panel selector premium dengan konfigurasi komponen yang dapat disesuaikan.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="product-type-grid">
+          <article class="card">
+            <div class="icon">G</div>
+            <h3>Panel Genset</h3>
+            <p>Panel untuk pengoperasian dan pengaturan genset sesuai kapasitas dan kebutuhan sistem.</p>
+          </article>
+          <article class="card">
+            <div class="icon">A</div>
+            <h3>Panel AMF</h3>
+            <p>Solusi Automatic Main Failure untuk pengaturan sumber listrik saat suplai utama terganggu.</p>
+          </article>
+          <article class="card">
+            <div class="icon">T</div>
+            <h3>Panel ATS</h3>
+            <p>Panel Automatic Transfer Switch untuk perpindahan sumber listrik PLN dan genset.</p>
+          </article>
+          <article class="card">
+            <div class="icon">AT</div>
+            <h3>Panel ATS-AMF</h3>
+            <p>Kombinasi kontrol dan perpindahan sumber listrik sesuai konfigurasi yang dibutuhkan.</p>
+          </article>
+          <article class="card">
+            <div class="icon">D</div>
+            <h3>Panel Distribusi</h3>
+            <p>Membantu pembagian dan pengaturan daya listrik untuk bangunan, toko, atau usaha.</p>
+          </article>
+          <article class="card">
+            <div class="icon">M</div>
+            <h3>Panel Kontrol Motor</h3>
+            <p>Panel kontrol untuk kebutuhan motor listrik dan sistem kelistrikan operasional.</p>
+          </article>
+          <article class="card">
+            <div class="icon">C</div>
+            <h3>Panel Custom</h3>
+            <p>Perakitan panel berdasarkan ukuran, fungsi, diagram, dan kebutuhan lapangan.</p>
+          </article>
+          <article class="card">
+            <div class="icon">K</div>
+            <h3>Komponen Panel</h3>
+            <p>Pemilihan komponen panel dapat dikonsultasikan agar sesuai dengan fungsi sistem.</p>
+          </article>
+        </div>
+        <div class="product-gallery" aria-label="Galeri produk AP  Project">
+          <a class="gallery-item" href="img/IMG-20261007-WA0018.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0018.jpg" alt="Produk panel AP  Project 1"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0019.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0019.jpg" alt="Produk panel AP  Project 2"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0020.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0020.jpg" alt="Produk panel AP  Project 3"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0021.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0021.jpg" alt="Produk panel AP  Project 4"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0022.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0022.jpg" alt="Produk panel AP  Project 5"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0023.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0023.jpg" alt="Produk panel AP  Project 6"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0025.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0025.jpg" alt="Produk panel AP  Project 7"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0026.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0026.jpg" alt="Produk panel AP  Project 8"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0027.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0027.jpg" alt="Produk panel AP  Project 9"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0028.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0028.jpg" alt="Produk panel AP  Project 10"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0029.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0029.jpg" alt="Produk panel AP  Project 11"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0030.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0030.jpg" alt="Produk panel AP  Project 12"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0031.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0031.jpg" alt="Produk panel AP  Project 13"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0032.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0032.jpg" alt="Produk panel AP  Project 14"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0033.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0033.jpg" alt="Produk panel AP  Project 15"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0034.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0034.jpg" alt="Produk panel AP  Project 16"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0035.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0035.jpg" alt="Produk panel AP  Project 17"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0036.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0036.jpg" alt="Produk panel AP  Project 18"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0037.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0037.jpg" alt="Produk panel AP  Project 19"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0039.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0039.jpg" alt="Produk panel AP  Project 20"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0040.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0040.jpg" alt="Produk panel AP  Project 21"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0041.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0041.jpg" alt="Produk panel AP  Project 22"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0042.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0042.jpg" alt="Produk panel AP  Project 23"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0043.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0043.jpg" alt="Produk panel AP  Project 24"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0044.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0044.jpg" alt="Produk panel AP  Project 25"></a>
+          <a class="gallery-item" href="img/IMG-20261007-WA0046.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0046.jpg" alt="Produk panel AP  Project 26"></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="layanan">
+      <div class="container">
+        <div class="section-head">
+          <h2>Layanan AP  Project</h2>
+          <p>Dari konsultasi awal sampai panel siap digunakan, kebutuhan teknis dapat dibahas secara bertahap.</p>
+        </div>
+        <div class="service-grid">
+          <article class="card">
+            <div class="icon">Q</div>
+            <h3>Konsultasi Kebutuhan</h3>
+            <p>Diskusikan kapasitas genset, kebutuhan sistem, foto panel lama, diagram, atau spesifikasi awal.</p>
+          </article>
+          <article class="card">
+            <div class="icon">P</div>
+            <h3>Pembuatan Panel</h3>
+            <p>Melayani pembuatan panel listrik untuk rumah, toko, usaha, gedung, dan kebutuhan lain.</p>
+          </article>
+          <article class="card">
+            <div class="icon">R</div>
+            <h3>Perakitan Panel</h3>
+            <p>Komponen disusun dengan memperhatikan fungsi, kerapian kabel, dan kemudahan pemeriksaan.</p>
+          </article>
+          <article class="card">
+            <div class="icon">I</div>
+            <h3>Instalasi</h3>
+            <p>Membantu pemasangan serta pengaturan panel agar dapat digunakan sesuai kebutuhan sistem.</p>
+          </article>
+          <article class="card">
+            <div class="icon">S</div>
+            <h3>Servis dan Perawatan</h3>
+            <p>Pemeriksaan dan perbaikan panel yang mengalami gangguan atau membutuhkan perawatan.</p>
+          </article>
+          <article class="card">
+            <div class="icon">L</div>
+            <h3>Panel Listrik Bangunan</h3>
+            <p>Solusi panel untuk kebutuhan distribusi dan kontrol listrik pada bangunan atau fasilitas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="container">
+        <div class="section-head">
+          <h2>Mengapa memilih AP  Project</h2>
+          <p>Fokus pada kebutuhan sistem, kerapian pengerjaan, dan komunikasi yang jelas sejak awal.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-item">
+            <strong>Berlokasi di Kediri</strong>
+            <span>Berada di Desa Tambakrejo, Kecamatan Gurah, mudah dijangkau pelanggan sekitar Kediri.</span>
+          </div>
+          <div class="why-item">
+            <strong>Bisa Konsultasi</strong>
+            <span>Kebutuhan panel dapat dibahas sebelum menentukan jenis dan konfigurasi.</span>
+          </div>
+          <div class="why-item">
+            <strong>Sesuai Kebutuhan</strong>
+            <span>Panel dapat disesuaikan dengan sistem dan spesifikasi yang diperlukan.</span>
+          </div>
+          <div class="why-item">
+            <strong>Kerapian Panel</strong>
+            <span>Penataan komponen dan kabel diperhatikan agar mudah diperiksa dan dirawat.</span>
+          </div>
+          <div class="why-item">
+            <strong>Berbagai Kebutuhan</strong>
+            <span>Dari panel genset sampai panel kelistrikan untuk usaha dan bangunan.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="alur">
+      <div class="container">
+        <div class="section-head">
+          <h2>Alur pemesanan</h2>
+          <p>Sampaikan kebutuhan panel, lalu spesifikasi dan pengerjaan disepakati sebelum proses produksi atau instalasi.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <h3>Hubungi Kami</h3>
+            <p>Jelaskan kebutuhan panel yang diperlukan untuk genset, bangunan, usaha, atau sistem lain.</p>
+          </article>
+          <article class="step">
+            <h3>Kirim Data</h3>
+            <p>Sertakan kapasitas genset, foto panel lama, diagram, atau spesifikasi bila tersedia.</p>
+          </article>
+          <article class="step">
+            <h3>Konsultasi</h3>
+            <p>Kami membantu menentukan jenis dan konfigurasi panel yang sesuai kebutuhan.</p>
+          </article>
+          <article class="step">
+            <h3>Kesepakatan</h3>
+            <p>Setelah spesifikasi dan harga disetujui, proses pembuatan atau perakitan dilakukan.</p>
+          </article>
+          <article class="step">
+            <h3>Instalasi</h3>
+            <p>Untuk layanan instalasi, panel dipasang dan diperiksa sebelum digunakan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>Pertanyaan umum</h2>
+          <p>Beberapa hal yang sering ditanyakan sebelum pelanggan memesan panel.</p>
+        </div>
+        <div class="faq-grid">
+          <details open>
+            <summary>Apa saja yang disediakan AP  Project?</summary>
+            <p>AP  Project menyediakan panel genset, panel listrik, panel AMF, ATS, perakitan panel, instalasi, serta layanan perawatan dan perbaikan sesuai kebutuhan.</p>
+          </details>
+          <details>
+            <summary>Apakah panel bisa dibuat custom?</summary>
+            <p>Bisa. Spesifikasi dan konfigurasi panel dapat dibahas terlebih dahulu berdasarkan kebutuhan sistem pelanggan.</p>
+          </details>
+          <details>
+            <summary>Apakah bisa konsultasi sebelum memesan?</summary>
+            <p>Tentu. Pelanggan dapat berkonsultasi mengenai kapasitas genset, sistem listrik, dan konfigurasi yang diperlukan.</p>
+          </details>
+          <details>
+            <summary>Di mana lokasi AP  Project?</summary>
+            <p>AP  Project berlokasi di Desa Tambakrejo, Kecamatan Gurah, Kabupaten Kediri, Jawa Timur.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontak">
+      <div class="container">
+        <div class="contact-band">
+          <div>
+            <h2>Konsultasikan kebutuhan panel Anda.</h2>
+            <p>Jangan menentukan panel hanya berdasarkan harga. Pastikan panel sesuai kebutuhan sistem, kapasitas, dan spesifikasi yang digunakan.</p>
+            <div class="hero-actions">
+              <a class="btn btn-gold" href="https://wa.me/6281252595388" target="_blank" rel="noopener">Konsultasi Sekarang</a>
+              <a class="btn btn-secondary" href="mailto:approjectproject@gmail.com">Minta Penawaran</a>
+            </div>
+          </div>
+          <div class="contact-list">
+            <div class="contact-item">
+              <strong>Alamat</strong>
+              Desa Tambakrejo, Kecamatan Gurah, Kabupaten Kediri, Jawa Timur
+            </div>
+            <div class="contact-item">
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/6281252595388" target="_blank" rel="noopener">081252595388</a>
+            </div>
+            <div class="contact-item">
+              <strong>Email</strong>
+              <a href="mailto:approjectproject@gmail.com">approjectproject@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <strong>Marketplace dan Sosial Media</strong>
+              <div class="social-links">
+                <a class="social-link" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener">
+                  <span class="social-icon">SP</span>
+                  Shopee 1
+                </a>
+                <a class="social-link" href="https://id.shp.ee/hZhoMYgM" target="_blank" rel="noopener">
+                  <span class="social-icon">SP</span>
+                  Shopee 2
+                </a>
+                <a class="social-link" href="https://vt.tokopedia.com/t/ZS9DX1mMFE1tr-acawk/" target="_blank" rel="noopener">
+                  <span class="social-icon">TP</span>
+                  Tokopedia
+                </a>
+                <a class="social-link" href="https://www.instagram.com/reel/DeLMxanv90l/?utm_source=ig_web_button_share_sheet&amp;stkn=MzRlODBiNWFlZA==" target="_blank" rel="noopener">
+                  <span class="social-icon">IG</span>
+                  Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="map-panel" aria-label="Lokasi AP Project di Google Maps">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.860363454412!2d112.12214047443352!3d-7.8046037774785315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78590066acbaad%3A0xa9fbba23d3e52b69!2sAP%20PROJECT!5e0!3m2!1sid!2sid!4v1791504398383!5m2!1sid!2sid"
+            title="Lokasi AP Project"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>Copyright 2026 AP  Project Kediri. Semua hak dilindungi.</span>
+      <span>Panel genset | Panel listrik | AMF | ATS | Instalasi</span>
+    </div>
+  </footer>
+</body>
+</html>
