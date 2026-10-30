@@ -422,101 +422,65 @@
       gap: 16px;
     }
 
-    .product-showcase {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-
-    .featured-product,
-    .product-photo-card {
+    .product-type-card {
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: 0 10px 28px rgba(19, 42, 62, .06);
+      padding: 0;
     }
 
-    .featured-product {
-      display: grid;
-      grid-template-columns: .95fr 1.05fr;
-      min-height: 420px;
-    }
-
-    .featured-product img,
-    .product-photo-card img,
-    .gallery-item img {
+    .product-type-image {
       width: 100%;
-      height: 100%;
+      height: 210px;
       object-fit: cover;
     }
 
-    .featured-product img {
-      min-height: 420px;
+    .product-type-copy {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 22px;
     }
 
-    .featured-copy {
-      display: grid;
-      align-content: center;
-      padding: 34px;
+    .product-type-copy .icon {
+      margin-bottom: 14px;
     }
 
-    .featured-copy .eyebrow {
-      color: var(--green);
-      margin-bottom: 10px;
+    .product-type-copy p {
+      flex: 1;
+      margin-bottom: 18px;
     }
 
-    .featured-copy h3 {
-      color: var(--blue-deep);
-      font-size: clamp(28px, 4vw, 42px);
-    }
-
-    .featured-copy p {
-      color: var(--muted);
-      margin: 16px 0 0;
-    }
-
-    .product-photo-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .product-photo-card {
-      display: grid;
-      grid-template-rows: 260px auto;
-    }
-
-    .product-photo-card .copy {
-      padding: 20px;
-    }
-
-    .product-photo-card h3 {
-      color: var(--blue-deep);
-      font-size: 18px;
-    }
-
-    .product-photo-card p {
-      color: var(--muted);
-      margin: 8px 0 0;
-      font-size: 15px;
+    .product-type-copy .btn {
+      margin-top: auto;
     }
 
     .product-gallery {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 12px;
-      margin-top: 18px;
+      margin-top: 20px;
     }
 
-    .gallery-item {
+    .product-gallery a {
       overflow: hidden;
       aspect-ratio: 3 / 4;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--white);
       box-shadow: 0 8px 20px rgba(19, 42, 62, .05);
+    }
+
+    .product-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .2s ease;
+    }
+
+    .product-gallery a:hover img {
+      transform: scale(1.04);
     }
 
     .card {
@@ -805,15 +769,6 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .product-showcase,
-      .featured-product {
-        grid-template-columns: 1fr;
-      }
-
-      .featured-product img {
-        min-height: 320px;
-      }
-
       .product-gallery {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
@@ -950,6 +905,10 @@
         grid-template-columns: 1fr;
       }
 
+      .product-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .logo-panel {
         max-width: 320px;
         margin: 0 auto;
@@ -969,19 +928,6 @@
       .why-item,
       .fact {
         min-height: auto;
-      }
-
-      .product-photo-grid,
-      .product-gallery {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .featured-copy {
-        padding: 24px;
-      }
-
-      .product-photo-card {
-        grid-template-rows: 210px auto;
       }
 
       footer .container {
@@ -1106,108 +1052,128 @@
     <section class="products" id="produk">
       <div class="container">
         <div class="section-head">
-          <h2>Katalog produk panel</h2>
-          <p>Foto produk terbaru dari AP  Project. Spesifikasi, komponen, dan konfigurasi panel dapat dibahas sesuai kebutuhan pelanggan.</p>
-        </div>
-        <div class="product-showcase">
-          <article class="featured-product">
-            <img src="img/IMG-20261007-WA0024.jpg" alt="Panel 3 phase digital premium AP  Project">
-            <div class="featured-copy">
-              <p class="eyebrow">Produk Unggulan</p>
-              <h3>Panel digital premium untuk kebutuhan genset dan distribusi listrik.</h3>
-              <p>Tersedia pilihan panel 1 phase, 3 phase, selector, semi digital, hingga custom berdasarkan kapasitas dan kebutuhan instalasi.</p>
-              <div class="hero-actions">
-                <a class="btn btn-primary" href="https://wa.me/6281252595388" target="_blank" rel="noopener">Pesan Produk</a>
-                <a class="btn btn-secondary" href="#kontak">Konsultasi Detail</a>
-              </div>
-            </div>
-          </article>
-          <div class="product-photo-grid">
-            <article class="product-photo-card">
-              <img src="img/IMG-20261007-WA0038.jpg" alt="Panel 3 phase premium merah AP  Project">
-              <div class="copy">
-                <h3>3 Phase Premium</h3>
-                <p>Panel kapasitas besar dengan tampilan meter lengkap untuk kebutuhan beban tinggi.</p>
-              </div>
-            </article>
-            <article class="product-photo-card">
-              <img src="img/IMG-20261007-WA0045.jpg" alt="Panel 3 phase selector premium AP  Project">
-              <div class="copy">
-                <h3>3 Phase Selector</h3>
-                <p>Panel selector premium dengan konfigurasi komponen yang dapat disesuaikan.</p>
-              </div>
-            </article>
-          </div>
+          <h2>Pilih jenis panel</h2>
+          <p>Produk dikelompokkan berdasarkan fungsi panel. Klik Checkout Shopee 1 pada kategori yang sesuai untuk melihat produk di Shopee.</p>
         </div>
         <div class="product-type-grid">
-          <article class="card">
-            <div class="icon">G</div>
-            <h3>Panel Genset</h3>
-            <p>Panel untuk pengoperasian dan pengaturan genset sesuai kapasitas dan kebutuhan sistem.</p>
+          <article class="card product-type-card">
+            <img class="product-type-image" src="img/Panel Genset 3 Phase Profesional.png" alt="Panel genset 3 phase profesional">
+            <div class="product-type-copy">
+              <div class="icon">G</div>
+              <h3>Panel Genset</h3>
+              <p>Panel untuk pengoperasian dan pengaturan genset sesuai kapasitas dan kebutuhan sistem.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
           </article>
-          <article class="card">
-            <div class="icon">A</div>
-            <h3>Panel AMF</h3>
-            <p>Solusi Automatic Main Failure untuk pengaturan sumber listrik saat suplai utama terganggu.</p>
+          <article class="card product-type-card">
+            <img class="product-type-image" src="img/Panel Kontrol Generator Industri Merah.png" alt="Panel kontrol generator untuk sistem AMF">
+            <div class="product-type-copy">
+              <div class="icon">A</div>
+              <h3>Panel AMF</h3>
+              <p>Solusi Automatic Main Failure untuk pengaturan sumber listrik saat suplai utama terganggu.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
           </article>
-          <article class="card">
-            <div class="icon">T</div>
-            <h3>Panel ATS</h3>
-            <p>Panel Automatic Transfer Switch untuk perpindahan sumber listrik PLN dan genset.</p>
+          <article class="card product-type-card">
+            <img class="product-type-image" src="img/Panel Selektor 3 Phase Berkualitas.png" alt="Panel selektor 3 phase">
+            <div class="product-type-copy">
+              <div class="icon">T</div>
+              <h3>Panel ATS</h3>
+              <p>Panel Automatic Transfer Switch untuk perpindahan sumber listrik PLN dan genset.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
           </article>
-          <article class="card">
-            <div class="icon">AT</div>
-            <h3>Panel ATS-AMF</h3>
-            <p>Kombinasi kontrol dan perpindahan sumber listrik sesuai konfigurasi yang dibutuhkan.</p>
+          <article class="card product-type-card">
+            <img class="product-type-image" src="img/Panel Kontrol Listrik Azam Project (1).png" alt="Panel kontrol listrik untuk sistem ATS-AMF">
+            <div class="product-type-copy">
+              <div class="icon">AT</div>
+              <h3>Panel ATS-AMF</h3>
+              <p>Kombinasi kontrol dan perpindahan sumber listrik sesuai konfigurasi yang dibutuhkan.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
           </article>
-          <article class="card">
-            <div class="icon">D</div>
-            <h3>Panel Distribusi</h3>
-            <p>Membantu pembagian dan pengaturan daya listrik untuk bangunan, toko, atau usaha.</p>
+          <article class="card product-type-card">
+            <img class="product-type-image" src="img/Panel Distribusi Listrik di Studio Industri.png" alt="Panel distribusi listrik untuk kebutuhan industri">
+            <div class="product-type-copy">
+              <div class="icon">D</div>
+              <h3>Panel Distribusi</h3>
+              <p>Membantu pembagian dan pengaturan daya listrik untuk bangunan, toko, atau usaha.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
           </article>
-          <article class="card">
-            <div class="icon">M</div>
-            <h3>Panel Kontrol Motor</h3>
-            <p>Panel kontrol untuk kebutuhan motor listrik dan sistem kelistrikan operasional.</p>
+          <article class="card product-type-card">
+            <img class="product-type-image" src="img/Panel Kontrol Listrik di Bengkel.png" alt="Panel kontrol listrik untuk kebutuhan motor dan operasional">
+            <div class="product-type-copy">
+              <div class="icon">M</div>
+              <h3>Panel Kontrol Motor</h3>
+              <p>Panel kontrol untuk kebutuhan motor listrik dan sistem kelistrikan operasional.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
           </article>
-          <article class="card">
-            <div class="icon">C</div>
-            <h3>Panel Custom</h3>
-            <p>Perakitan panel berdasarkan ukuran, fungsi, diagram, dan kebutuhan lapangan.</p>
+          <article class="card product-type-card">
+            <img class="product-type-image" src="img/Panel Listrik 3 Phase Custom Beroda.png" alt="Panel listrik 3 phase custom beroda">
+            <div class="product-type-copy">
+              <div class="icon">C</div>
+              <h3>Panel Custom</h3>
+              <p>Perakitan panel berdasarkan ukuran, fungsi, diagram, dan kebutuhan lapangan.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
           </article>
-          <article class="card">
-            <div class="icon">K</div>
-            <h3>Komponen Panel</h3>
-            <p>Pemilihan komponen panel dapat dikonsultasikan agar sesuai dengan fungsi sistem.</p>
+          <article class="card product-type-card">
+            <img class="product-type-image" src="img/Panel Digital 3 Phase Empat Warna (1) - Copy.png" alt="Panel digital 3 phase dengan pilihan warna">
+            <div class="product-type-copy">
+              <div class="icon">3P</div>
+              <h3>Panel 3 Phase Digital</h3>
+              <p>Panel digital untuk pemantauan listrik 3 phase dengan konfigurasi sesuai kebutuhan.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
           </article>
         </div>
-        <div class="product-gallery" aria-label="Galeri produk AP  Project">
-          <a class="gallery-item" href="img/IMG-20261007-WA0018.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0018.jpg" alt="Produk panel AP  Project 1"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0019.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0019.jpg" alt="Produk panel AP  Project 2"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0020.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0020.jpg" alt="Produk panel AP  Project 3"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0021.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0021.jpg" alt="Produk panel AP  Project 4"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0022.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0022.jpg" alt="Produk panel AP  Project 5"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0023.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0023.jpg" alt="Produk panel AP  Project 6"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0025.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0025.jpg" alt="Produk panel AP  Project 7"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0026.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0026.jpg" alt="Produk panel AP  Project 8"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0027.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0027.jpg" alt="Produk panel AP  Project 9"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0028.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0028.jpg" alt="Produk panel AP  Project 10"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0029.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0029.jpg" alt="Produk panel AP  Project 11"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0030.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0030.jpg" alt="Produk panel AP  Project 12"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0031.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0031.jpg" alt="Produk panel AP  Project 13"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0032.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0032.jpg" alt="Produk panel AP  Project 14"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0033.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0033.jpg" alt="Produk panel AP  Project 15"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0034.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0034.jpg" alt="Produk panel AP  Project 16"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0035.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0035.jpg" alt="Produk panel AP  Project 17"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0036.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0036.jpg" alt="Produk panel AP  Project 18"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0037.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0037.jpg" alt="Produk panel AP  Project 19"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0039.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0039.jpg" alt="Produk panel AP  Project 20"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0040.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0040.jpg" alt="Produk panel AP  Project 21"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0041.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0041.jpg" alt="Produk panel AP  Project 22"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0042.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0042.jpg" alt="Produk panel AP  Project 23"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0043.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0043.jpg" alt="Produk panel AP  Project 24"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0044.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0044.jpg" alt="Produk panel AP  Project 25"></a>
-          <a class="gallery-item" href="img/IMG-20261007-WA0046.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0046.jpg" alt="Produk panel AP  Project 26"></a>
+        <div class="product-gallery" aria-label="Galeri foto produk; pilih foto untuk membuka Shopee 1">
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/ChatGPT Image 9 Okt 2026, 14.33.53.png" alt="Foto produk panel listrik 1"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Gemini_Generated_Image_q7y0soq7y0soq7y0.jpg" alt="Foto produk panel listrik 2"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Iklan Panel Listrik Digital Modern.png" alt="Foto produk panel listrik 3"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Digital 3 Phase Empat Warna (1) - Copy.png" alt="Foto produk panel listrik 4"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Distribusi Listrik dalam Kobaran Api.png" alt="Foto produk panel listrik 5"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Distribusi Listrik di Studio Industri.png" alt="Foto produk panel listrik 6"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Genset 3 Phase Profesional.png" alt="Foto produk panel listrik 7"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Kontrol Bertumpuk di Sudut Modern.png" alt="Foto produk panel listrik 8"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Kontrol Biru di Bengkel Modern (1).png" alt="Foto produk panel listrik 9"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Kontrol Generator Industri Merah.png" alt="Foto produk panel listrik 10"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Kontrol Listrik Azam Project (1).png" alt="Foto produk panel listrik 11"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Kontrol Listrik Bertingkat di Studio.png" alt="Foto produk panel listrik 12"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Kontrol Listrik di Bengkel.png" alt="Foto produk panel listrik 13"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Kontrol Listrik di Studio AP Project.png" alt="Foto produk panel listrik 14"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Kontrol Listrik Industri Hitam.png" alt="Foto produk panel listrik 15"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Kontrol Listrik Tiga Fasa - Copy.png" alt="Foto produk panel listrik 16"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Listrik 3 Phase Custom Beroda.png" alt="Foto produk panel listrik 17"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Listrik 3 Phase Custom.png" alt="Foto produk panel listrik 18"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Listrik Bertumpuk dalam Kobaran Api.png" alt="Foto produk panel listrik 19"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Listrik Bertumpuk di Showroom Modern.png" alt="Foto produk panel listrik 20"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Listrik Modular Modern di Studio.png" alt="Foto produk panel listrik 21"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Listrik Siap Pakai dengan Bonus.png" alt="Foto produk panel listrik 22"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel merah.png" alt="Foto produk panel listrik 23"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Selektor 3 Phase Berkualitas (1).png" alt="Foto produk panel listrik 24"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Panel Selektor 3 Phase Berkualitas.png" alt="Foto produk panel listrik 25"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Poster Panel Distribusi Listrik 3 Phase.png" alt="Foto produk panel listrik 26"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Poster Promosi Panel Listrik Berkualitas.png" alt="Foto produk panel listrik 27"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/pro 1.jpg" alt="Foto produk panel listrik 28"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Susunan Panel Kontrol Listrik Berwarna.png" alt="Foto produk panel listrik 29"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tiga Panel Distribusi Listrik di Bengkel.png" alt="Foto produk panel listrik 30"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tiga Panel Listrik Hitam Bertumpuk.png" alt="Foto produk panel listrik 31"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tumpukan Panel Distribusi Daya Industrial.png" alt="Foto produk panel listrik 32"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tumpukan Panel Distribusi Listrik Industri.png" alt="Foto produk panel listrik 33"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tumpukan Panel Distribusi Listrik Industrial.png" alt="Foto produk panel listrik 34"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tumpukan Panel Distribusi Listrik Profesional.png" alt="Foto produk panel listrik 35"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tumpukan Panel Kontrol Bertenaga Industri.png" alt="Foto produk panel listrik 36"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tumpukan Panel Kontrol Listrik Bengkel.png" alt="Foto produk panel listrik 37"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tumpukan Panel Kontrol Listrik Biru Merah.png" alt="Foto produk panel listrik 38"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tumpukan Panel Kontrol Listrik Industri (1).png" alt="Foto produk panel listrik 39"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tumpukan Panel Kontrol Listrik Industri.png" alt="Foto produk panel listrik 40"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tumpukan Panel Listrik di Bengkel Modern.png" alt="Foto produk panel listrik 41"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tumpukan Panel Listrik di Taman Modern.png" alt="Foto produk panel listrik 42"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tumpukan Panel Listrik Terbungkus Rapi.png" alt="Foto produk panel listrik 43"></a>
+          <a href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer"><img src="img/Tumpukan Panel Listrik Transparan.png" alt="Foto produk panel listrik 44"></a>
         </div>
       </div>
     </section>
