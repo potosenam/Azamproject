@@ -181,7 +181,7 @@
     .hero {
       background:
         linear-gradient(115deg, rgba(7, 48, 71, .96), rgba(6, 74, 114, .9)),
-        url("img/IMG-20261007-WA0019.jpg") center / cover;
+        url("img/Panel Digital 3 Phase Empat Warna (1) - Copy.png") center / cover;
       color: var(--white);
       padding: 96px 0 70px;
     }
@@ -260,16 +260,15 @@
       color: var(--muted);
     }
 
-    .featured-grid {
+    .category-grid {
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      margin-bottom: 18px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
     }
 
-    .feature-card,
-    .product-card,
-    .spec-card {
+    .category-card {
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
       background: var(--white);
       border: 1px solid var(--line);
@@ -277,90 +276,33 @@
       box-shadow: 0 10px 28px rgba(19, 42, 62, .06);
     }
 
-    .feature-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 430px;
-    }
-
-    .feature-card img,
-    .product-card img,
-    .gallery a img {
+    .category-card img {
       width: 100%;
-      height: 100%;
+      height: 210px;
       object-fit: cover;
     }
 
-    .feature-card img {
-      min-height: 430px;
-    }
-
-    .feature-copy {
-      display: grid;
-      align-content: center;
-      padding: 34px;
-    }
-
-    .feature-copy .eyebrow {
-      color: var(--green);
-      margin-bottom: 10px;
-    }
-
-    .feature-copy h2 {
-      color: var(--blue-deep);
-      font-size: clamp(28px, 4vw, 42px);
-    }
-
-    .feature-copy p,
-    .product-card p,
-    .spec-card p {
-      color: var(--muted);
-      margin: 12px 0 0;
-    }
-
-    .side-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-
-    .product-card {
-      display: grid;
-      grid-template-columns: 170px 1fr;
-      min-height: 205px;
-    }
-
-    .product-copy,
-    .spec-card {
+    .category-copy {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
       padding: 20px;
     }
 
-    .product-copy h3,
-    .spec-card h3 {
+    .category-copy h3 {
       color: var(--blue-deep);
       font-size: 18px;
     }
 
-    .spec-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      margin-bottom: 18px;
+    .category-copy p {
+      flex: 1;
+      margin: 12px 0 18px;
+      color: var(--muted);
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .gallery a {
-      overflow: hidden;
-      aspect-ratio: 3 / 4;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--white);
-      box-shadow: 0 8px 20px rgba(19, 42, 62, .05);
+    .category-copy .btn {
+      margin-top: auto;
     }
 
     .cta {
@@ -399,18 +341,12 @@
     }
 
     @media (max-width: 960px) {
-      .featured-grid,
-      .feature-card,
       .cta-band {
         grid-template-columns: 1fr;
       }
 
-      .spec-grid {
+      .category-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .gallery {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .section-head {
@@ -462,25 +398,10 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .product-card,
-      .spec-grid,
-      .gallery {
-        grid-template-columns: 1fr 1fr;
+      .category-grid {
+        grid-template-columns: 1fr;
       }
 
-      .product-card {
-        grid-template-rows: 210px auto;
-      }
-
-      .product-card img {
-        grid-column: 1 / -1;
-      }
-
-      .product-copy {
-        grid-column: 1 / -1;
-      }
-
-      .feature-copy,
       .cta-band {
         padding: 24px;
       }
@@ -488,8 +409,6 @@
 
     @media (max-width: 420px) {
       nav,
-      .spec-grid,
-      .gallery,
       .quick-links {
         grid-template-columns: 1fr;
       }
@@ -529,93 +448,74 @@
     <section>
       <div class="container">
         <div class="section-head">
-          <h2>Produk unggulan</h2>
-          <p>Beberapa model yang sering dipesan. Detail komponen, kapasitas, warna, dan terminal dapat dibahas sebelum produksi.</p>
+          <h2>Pilih jenis panel</h2>
+          <p>Produk dikelompokkan berdasarkan fungsi panel. Klik Checkout Shopee 1 pada kategori yang sesuai untuk melihat produk di Shopee.</p>
         </div>
-        <div class="featured-grid">
-          <article class="feature-card">
-            <img src="img/IMG-20261007-WA0024.jpg" alt="Panel 3 phase digital premium Azam Project">
-            <div class="feature-copy">
-              <p class="eyebrow">3 Phase Digital</p>
-              <h2>Panel premium untuk kebutuhan 10 sampai 40 kVA.</h2>
-              <p>Tampilan digital, susunan panel rapi, dan desain yang siap disesuaikan untuk kebutuhan genset maupun distribusi listrik.</p>
+        <div class="category-grid" aria-label="Katalog produk berdasarkan jenis">
+          <article class="category-card">
+            <img src="img/Panel Genset 3 Phase Profesional.png" alt="Panel genset 3 phase profesional">
+            <div class="category-copy">
+              <h3>Panel Genset</h3>
+              <p>Panel untuk pengoperasian dan pengaturan genset sesuai kapasitas sistem.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
             </div>
           </article>
-          <div class="side-grid">
-            <article class="product-card">
-              <img src="img/IMG-20261007-WA0038.jpg" alt="Panel 3 phase premium kapasitas besar">
-              <div class="product-copy">
-                <h3>3 Phase Premium</h3>
-                <p>Panel merah kapasitas tinggi dengan meter lengkap untuk kebutuhan beban besar.</p>
-              </div>
-            </article>
-            <article class="product-card">
-              <img src="img/IMG-20261007-WA0046.jpg" alt="Panel 1 phase digital minimalis">
-              <div class="product-copy">
-                <h3>1 Phase Digital Minimalis</h3>
-                <p>Model ringkas dengan stopkontak dan konfigurasi komponen sesuai kebutuhan pelanggan.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div class="spec-grid">
-          <article class="spec-card">
-            <h3>Panel Genset</h3>
-            <p>Untuk pengoperasian dan pengaturan genset sesuai kapasitas sistem.</p>
+          <article class="category-card">
+            <img src="img/Panel Kontrol Generator Industri Merah.png" alt="Panel kontrol generator untuk sistem AMF">
+            <div class="category-copy">
+              <h3>Panel AMF</h3>
+              <p>Automatic Main Failure untuk pengaturan sumber listrik saat suplai utama terganggu.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
           </article>
-          <article class="spec-card">
-            <h3>ATS dan AMF</h3>
-            <p>Perpindahan serta kontrol sumber listrik PLN dan genset.</p>
+          <article class="category-card">
+            <img src="img/Panel Selektor 3 Phase Berkualitas.png" alt="Panel selektor 3 phase">
+            <div class="category-copy">
+              <h3>Panel ATS</h3>
+              <p>Automatic Transfer Switch untuk perpindahan sumber listrik PLN dan genset.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
           </article>
-          <article class="spec-card">
-            <h3>Panel Distribusi</h3>
-            <p>Pembagian daya listrik untuk rumah, toko, bangunan, dan usaha.</p>
+          <article class="category-card">
+            <img src="img/Panel Kontrol Listrik Azam Project (1).png" alt="Panel kontrol listrik untuk sistem ATS-AMF">
+            <div class="category-copy">
+              <h3>Panel ATS-AMF</h3>
+              <p>Kombinasi kontrol dan perpindahan sumber listrik sesuai konfigurasi yang dibutuhkan.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
           </article>
-          <article class="spec-card">
-            <h3>Panel Custom</h3>
-            <p>Ukuran, warna, komponen, dan wiring dapat disesuaikan kebutuhan.</p>
+          <article class="category-card">
+            <img src="img/Panel Distribusi Listrik di Studio Industri.png" alt="Panel distribusi listrik untuk kebutuhan industri">
+            <div class="category-copy">
+              <h3>Panel Distribusi</h3>
+              <p>Pembagian daya listrik untuk rumah, toko, bangunan, dan usaha.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <h2>Galeri produk terbaru</h2>
-          <p>Klik foto untuk melihat gambar lebih besar.</p>
-        </div>
-        <div class="gallery" aria-label="Galeri produk Azam Project">
-          <a href="img/IMG-20261007-WA0018.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0018.jpg" alt="Galeri produk Azam Project 1"></a>
-          <a href="img/IMG-20261007-WA0019.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0019.jpg" alt="Galeri produk Azam Project 2"></a>
-          <a href="img/IMG-20261007-WA0020.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0020.jpg" alt="Galeri produk Azam Project 3"></a>
-          <a href="img/IMG-20261007-WA0021.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0021.jpg" alt="Galeri produk Azam Project 4"></a>
-          <a href="img/IMG-20261007-WA0022.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0022.jpg" alt="Galeri produk Azam Project 5"></a>
-          <a href="img/IMG-20261007-WA0023.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0023.jpg" alt="Galeri produk Azam Project 6"></a>
-          <a href="img/IMG-20261007-WA0024.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0024.jpg" alt="Galeri produk Azam Project 7"></a>
-          <a href="img/IMG-20261007-WA0025.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0025.jpg" alt="Galeri produk Azam Project 8"></a>
-          <a href="img/IMG-20261007-WA0026.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0026.jpg" alt="Galeri produk Azam Project 9"></a>
-          <a href="img/IMG-20261007-WA0027.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0027.jpg" alt="Galeri produk Azam Project 10"></a>
-          <a href="img/IMG-20261007-WA0028.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0028.jpg" alt="Galeri produk Azam Project 11"></a>
-          <a href="img/IMG-20261007-WA0029.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0029.jpg" alt="Galeri produk Azam Project 12"></a>
-          <a href="img/IMG-20261007-WA0030.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0030.jpg" alt="Galeri produk Azam Project 13"></a>
-          <a href="img/IMG-20261007-WA0031.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0031.jpg" alt="Galeri produk Azam Project 14"></a>
-          <a href="img/IMG-20261007-WA0032.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0032.jpg" alt="Galeri produk Azam Project 15"></a>
-          <a href="img/IMG-20261007-WA0033.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0033.jpg" alt="Galeri produk Azam Project 16"></a>
-          <a href="img/IMG-20261007-WA0034.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0034.jpg" alt="Galeri produk Azam Project 17"></a>
-          <a href="img/IMG-20261007-WA0035.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0035.jpg" alt="Galeri produk Azam Project 18"></a>
-          <a href="img/IMG-20261007-WA0036.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0036.jpg" alt="Galeri produk Azam Project 19"></a>
-          <a href="img/IMG-20261007-WA0037.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0037.jpg" alt="Galeri produk Azam Project 20"></a>
-          <a href="img/IMG-20261007-WA0038.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0038.jpg" alt="Galeri produk Azam Project 21"></a>
-          <a href="img/IMG-20261007-WA0039.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0039.jpg" alt="Galeri produk Azam Project 22"></a>
-          <a href="img/IMG-20261007-WA0040.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0040.jpg" alt="Galeri produk Azam Project 23"></a>
-          <a href="img/IMG-20261007-WA0041.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0041.jpg" alt="Galeri produk Azam Project 24"></a>
-          <a href="img/IMG-20261007-WA0042.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0042.jpg" alt="Galeri produk Azam Project 25"></a>
-          <a href="img/IMG-20261007-WA0043.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0043.jpg" alt="Galeri produk Azam Project 26"></a>
-          <a href="img/IMG-20261007-WA0044.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0044.jpg" alt="Galeri produk Azam Project 27"></a>
-          <a href="img/IMG-20261007-WA0045.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0045.jpg" alt="Galeri produk Azam Project 28"></a>
-          <a href="img/IMG-20261007-WA0046.jpg" target="_blank" rel="noopener"><img src="img/IMG-20261007-WA0046.jpg" alt="Galeri produk Azam Project 29"></a>
+          <article class="category-card">
+            <img src="img/Panel Kontrol Listrik di Bengkel.png" alt="Panel kontrol listrik untuk kebutuhan motor dan operasional">
+            <div class="category-copy">
+              <h3>Panel Kontrol Motor</h3>
+              <p>Panel kontrol untuk kebutuhan motor listrik dan sistem kelistrikan operasional.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
+          </article>
+          <article class="category-card">
+            <img src="img/Panel Listrik 3 Phase Custom Beroda.png" alt="Panel listrik 3 phase custom beroda">
+            <div class="category-copy">
+              <h3>Panel Custom</h3>
+              <p>Ukuran, fungsi, diagram, dan susunan panel dapat disesuaikan kebutuhan lapangan.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
+          </article>
+          <article class="category-card">
+            <img src="img/Panel Digital 3 Phase Empat Warna (1) - Copy.png" alt="Panel digital 3 phase dengan pilihan warna">
+            <div class="category-copy">
+              <h3>Panel 3 Phase Digital</h3>
+              <p>Panel digital untuk pemantauan listrik 3 phase dengan konfigurasi sesuai kebutuhan.</p>
+              <a class="btn btn-primary" href="https://id.shp.ee/dQpzjAQi" target="_blank" rel="noopener noreferrer">Checkout Shopee 1</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
